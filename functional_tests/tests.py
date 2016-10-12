@@ -1,13 +1,16 @@
 from selenium import webdriver
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.common.keys import Keys
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import time
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox(firefox_binary=FirefoxBinary(
+            firefox_path='/home/rahul/Downloads/firefox/firefox'
+        ))
         self.browser.implicitly_wait(3)
 
     def tearDown(self):
@@ -62,7 +65,9 @@ class NewVisitorTest(LiveServerTestCase):
         # We make a new browser session to ensure that no information
         # of Edith is coming through from cookies etc.
         self.browser.quit()
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox(firefox_binary=FirefoxBinary(
+            firefox_path='/home/rahul/Downloads/firefox/firefox'
+        ))
 
         # Francis visits the home_page. There is no sign of Edith's list
         self.browser.get(self.live_server_url)
