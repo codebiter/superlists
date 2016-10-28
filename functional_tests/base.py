@@ -22,7 +22,7 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox(firefox_binary=FirefoxBinary(
-            firefox_path='/home/rahul/Documents/projects/testing_tools/firefox/firefox'
+            firefox_path='/home/rahul/Documents/projects/tools/testing_tools/firefox/firefox'
         ))
         self.browser.implicitly_wait(3)
 

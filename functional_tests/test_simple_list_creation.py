@@ -52,7 +52,7 @@ class NewVisitorTest(FunctionalTest):
         # of Edith is coming through from cookies etc.
         self.browser.quit()
         self.browser = webdriver.Firefox(firefox_binary=FirefoxBinary(
-            firefox_path='/home/rahul/Downloads/firefox/firefox'
+            firefox_path='/home/rahul/Documents/projects/tools/testing_tools/firefox/firefox'
         ))
 
         # Francis visits the home_page. There is no sign of Edith's list
